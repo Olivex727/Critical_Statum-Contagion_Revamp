@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace Game {
+namespace Game
+{
 
     //=====PLAYER-DERIVED OBJECTS=====//
 
@@ -9,30 +10,52 @@ namespace Game {
     class Player
     {
         //Inventory
-        private List<Item> invent { get; set; }
+        protected List<Item> invent { get; set; }
 
         //The stats dictionary
-        private Dictionary<string, int> stats { get; set; }
+        protected Dictionary<string, int> stats { get; set; }
 
         //The amount of money the player has/Skill points
-        private Currency points { get; set; }
+        protected Currency points { get; set; }
+
+        //Initialise the player object
+        public Player() {
+            invent = new List<Item>();
+            stats = new Dictionary<string, int>();
+
+            stats.Add("charisma", 1);
+            stats.Add("piloting", 1);
+            stats.Add("tech. knowlege", 1);
+            stats.Add("attack", 1);
+            stats.Add("intellect", 1);
+
+            if (this is Save) {
+                points = new Currency();
+                points.init("credits", 0);
+            }
+        }
 
         //Add Something to Inventory
-        public virtual void addToInvent() {
-            Console.WriteLine("x");
-            invent = new List<Item>();
-            invent.Add(new Tool());
-            Console.WriteLine(invent.ToString());
+        public virtual void addToInvent(Item input) {
+            if (!invent.Contains(input) && !(input is Currency)) {
+                invent.Add(input);
+            }
         }
 
         //Add Remove from Inventory
-        public void removeFromInvent(){
-
+        public void removeFromInvent(string itemname){
+            Item remove = null;
+            foreach (Item item in invent) {
+                if (item.name == itemname) {
+                    remove = item;
+                }
+            }
+            invent.Remove(remove);
         }
 
         //Update the stats dictionary
-        public virtual void updateStats() {
-
+        public virtual void updateStats(bool justDisplay = false) {
+            
         }
 
         //Finds a required component of the player/person, either in invent, stats or points
@@ -95,15 +118,22 @@ namespace Game {
         public byte id { get; set; }
 
         //The level of the person
-        public int lvl { get; set; }
+        public int lvl = 1;
 
-        //Overrided add to inventory class
-        public override void addToInvent() {
+        //Constructor
+        public Person(string name, byte id) {
 
         }
 
+        //Overrided add to inventory class
+        public override void addToInvent(Item input) {
+            if (id % input.usageID == 0 && !invent.Contains(input) && !(input is Currency)) {
+                invent.Add(input);
+            }
+        }
+
         //Overried stats class
-        public override void updateStats(){
+        public override void updateStats(bool justDisplay = false){
 
         }
 
@@ -134,6 +164,9 @@ namespace Game {
 
         //Wether or not the location can be accesed (if unlocked area is on last stage and terminate is set to true)
         public bool locked = true;
+
+        //The areas that exist inside the Loc, not the nullArea or the unlockArea
+        public List<Area> locAreas { get; set; }
 
         //If unlock_area is null, then the location can be accesed at any point
         public Loc(Area null_area, Area unlock_area = null) {
@@ -182,12 +215,17 @@ namespace Game {
 
         //What Person can use the item
         public byte usageID { get; set; }
+
+        public void init(string itemname, byte id) {
+            name = itemname;
+            usageID = id;
+        }
     }
 
     //Currency can be used either as a skill point/payment item
     class Currency : Item
     {
-        public int amount { get; set; }
+        public int amount = 0;
     }
 
     //Accessories don't actually hold any use in specific
@@ -231,5 +269,12 @@ namespace Game {
 
         //How quick can it be used
         public int speed { get; set; }
+    }
+}
+namespace Minigames
+{
+    class GameObject
+    {
+
     }
 }

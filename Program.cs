@@ -1,5 +1,6 @@
 ﻿using System;
 using Game;
+using Minigames;
 
 /*
 
@@ -27,8 +28,14 @@ namespace Critical_Statum_Contagion_Revamp
             //TEST STAGE
 
             Save lol = new Save();
+            Tool x = new Tool();
+            x.init("axe", 2);
 
-            lol.addToInvent();
+            lol.addToInvent(x);
+            lol.addToInvent(x);
+            lol.removeFromInvent(x.name);
+
+            Console.WriteLine("");
 
             //TEST STAGE
 
