@@ -36,10 +36,16 @@ namespace Game
         }
 
         //Add Something to Inventory
-        public virtual void addToInvent(Item input) {
+        public virtual string addToInvent(Item input, int amount = 0) {
             if (!invent.Contains(input) && !(input is Currency)) {
                 invent.Add(input);
+                return "+Added " + input.name + " to inventory.";
             }
+            else if (input is Currency){
+                points.amount += amount;
+                return "+" + amount + " " + input.name + " to inventory.";
+            }
+            return "";
         }
 
         //Add Remove from Inventory
@@ -77,14 +83,18 @@ namespace Game
         //Store of all visited areas, to ensure that new information happens each time
         private List<string> visited { get; set; }
 
-        //Causes the player to execute what happens in a certain area/add to list of visited
-        public void runArea() {
-
+        //Causes the player to change their location/add to list of visited
+        public (string, string, bool, string, string[], string) moveLoc () {
+            return runArea_Pre(this);
         }
 
-        //Causes the player to change their location/add to list of visited
-        public void moveLoc () {
+        //Causes the player to execute what happens in a certain area/add to list of visited
+        private (string, string, bool, string, string[], string) runArea_Pre (Player obj){
+            return ("", "", true, "", new string[1], "");
+        }
 
+        public string runArea_Post (Player obj) {
+            return "";
         }
     }
 
@@ -126,10 +136,16 @@ namespace Game
         }
 
         //Overrided add to inventory class
-        public override void addToInvent(Item input) {
+        public override string addToInvent(Item input, int amount = 0) {
             if (id % input.usageID == 0 && !invent.Contains(input) && !(input is Currency)) {
                 invent.Add(input);
+                return "+Added " + input.name + " to " + name +"'s inventory.";
             }
+            else if (input is Currency) {
+                points.amount += amount;
+                return "+" + amount + " " + input.name + " to " + name + "'s inventory.";
+            }
+            return "";
         }
 
         //Overried stats class
@@ -186,13 +202,21 @@ namespace Game
         //Wether or not the area is accesible anymore
         public bool terminated { get; set; }
 
-        //An array of tupules of
-        //(output description | 
-        //The required item id in order to pass | and its amount |
-        //The minigame that will be played if the reqiured item is available
-        //The output given item id | and its amount)
-        //Note that some of these items will most likely be empty strings/zeroes. This is the class where most game action occurs
-        public (string, string, int, string, string, int)[] stages { get; set; }
+        //An array of records of
+        /*
+        - Whether or not player leaves after execution
+        - Query/Or no query?
+        - Pre-Dialouge
+        - Post-Dialouge
+        - Music
+        - Images
+        - Minigame
+        - Item activation string
+        - Key activation string (if items aren’t neccesary)
+        - Given items (or currency)
+        - Amount of currency (if currency)
+        */
+        public AreaStage[] stages { get; set; }
 
         //Actuates the events that unfold in each area
         public override void activate(Save state = null){
@@ -269,6 +293,59 @@ namespace Game
 
         //How quick can it be used
         public int speed { get; set; }
+    }
+
+    //A structure containing all neccesary attributes of the stage execution information. It contains how the areas will execute
+    public struct AreaStage
+    {
+        public AreaStage(bool doQuery, bool forceAdv, string preText, string postText = "", string[] itemkeys = null, string[] querykeys = null, string returnitem = "", int amount = 0, string game = "", string imagename = "", string musicname = "") {
+            query = doQuery;
+            forceAdvance = forceAdv;
+            outputDialouge = (preText, postText);
+            item_keys = itemkeys;
+            query_keys = querykeys;
+            return_item = returnitem;
+            amountReturn = amount;
+            image = imagename;
+            music = musicname;
+
+            if (doQuery) {
+                minigame = "";
+            }
+            else {
+                minigame = game;
+            }
+        }
+
+        //Whether or not player leaves after execution
+        public bool forceAdvance { get; }
+
+        //Query/Or no query? -- Wait for user response
+        public bool query { get; }
+
+        //Image to be displayed on background
+        public string image { get; }
+        
+        //Music to play (On loop)
+        public string music { get; }
+
+        //The dialouge that is printed, pre and post query phases
+        public (string, string) outputDialouge { get; }
+
+        //The items that the user can use to pass the area
+        public string[] item_keys { get; }
+
+        //General terms the user can use to pass the area
+        public string[] query_keys { get; }
+
+        //The minigame that may play for this stage (is ignored if query=true)
+        public string minigame { get; }
+
+        //The item name that is added to the player's invent
+        public string return_item { get; }
+
+        //If return_item is a currency, then how much the amount increases by
+        public int amountReturn { get; }
     }
 }
 namespace Minigames
