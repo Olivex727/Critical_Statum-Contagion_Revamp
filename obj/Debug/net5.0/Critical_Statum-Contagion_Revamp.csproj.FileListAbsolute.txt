@@ -1,0 +1,15 @@
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Critical_Statum-Contagion_Revamp.deps.json
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Critical_Statum-Contagion_Revamp.runtimeconfig.json
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Critical_Statum-Contagion_Revamp.runtimeconfig.dev.json
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Critical_Statum-Contagion_Revamp.dll
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/ref/Critical_Statum-Contagion_Revamp.dll
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Critical_Statum-Contagion_Revamp.pdb
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.csprojAssemblyReference.cache
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.AssemblyInfoInputs.cache
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.AssemblyInfo.cs
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.csproj.CoreCompileInputs.cache
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.dll
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/ref/Critical_Statum-Contagion_Revamp.dll
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.pdb
+/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.genruntimeconfig.cache
