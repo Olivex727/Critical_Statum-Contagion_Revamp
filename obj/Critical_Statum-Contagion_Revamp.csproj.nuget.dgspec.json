@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj": {}
+    "/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj": {}
   },
   "projects": {
-    "/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj": {
+    "/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj",
+        "projectUniqueName": "/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj",
         "projectName": "Critical_Statum-Contagion_Revamp",
-        "projectPath": "/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj",
-        "packagesPath": "/Users/oliverwalters/.nuget/packages/",
-        "outputPath": "/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/",
+        "projectPath": "/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj",
+        "packagesPath": "/home/olivia/.nuget/packages/",
+        "outputPath": "/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/oliverwalters/.nuget/NuGet/NuGet.Config"
+          "/home/olivia/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.300/RuntimeIdentifierGraph.json"
         }
       }
     }
