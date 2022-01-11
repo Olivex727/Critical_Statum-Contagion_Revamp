@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using Game;
 using Minigames;
+using Loader;
 
 namespace Critical_Statum_Contagion_Revamp
 {
     class Program
     {
+
+        static Save currentGame;
+
         static void Main(string[] args)
         {
             Console.WriteLine("CRITICAL STATUM: CONTAGION");
@@ -40,10 +44,26 @@ namespace Critical_Statum_Contagion_Revamp
 
 
         }
+    }
 
-        static void printToScreen() {
-            
-        }
+    class Commands
+    {
+        /*
+        COMMANDS:
+        - Inventory (invent)
+            - List Items    (list)
+                - *, tools, weapons, 
+            - Description   (desc)
+            - Find          (find)
+        - Wallet    (wallet)
+        - Read      (docs)
+        - GoTo      (goto)
+        - Map       (map)
+        - Save      (save)
+        - Help      (help)
+            - Commands      (<command>)
+        - Exit      (exit)
+        */
     }
 
     // Use String -> Method thingy
@@ -54,8 +74,12 @@ namespace Critical_Statum_Contagion_Revamp
         MINIGAMES:
         - Combat
         - Corrupted Combat
+        - Boss Combat
         - Password (Simple Area Input)
-        -
+        - Maze
+        - Battleship
+        - Anagram
+        - Hangman
         */
     }
 }

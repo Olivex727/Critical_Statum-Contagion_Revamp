@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Loader;
 
 namespace Game
 {
@@ -15,7 +16,33 @@ namespace Game
      */
     class Save
     {
-        
+        public Map map { get; set; }
+
+        public Player[] players { get; set; }
+
+        public Location loc { get; set; }
+
+        public Inventory invent { get; set; }
+
+        // Creates basic save to load on
+        public Save() {
+            invent = new Inventory();
+            players = new Player[5];
+        }
+
+        // Creates a string of encoded data
+        public string encode() {
+            return "";
+        }
+
+        public string goTo() {
+            return "";
+        }
+
+        public string wallet() {
+            return "";
+        }
+
     }
 
     /*
@@ -27,6 +54,13 @@ namespace Game
      */
     class Player
     {
+
+        string name { get; set; }
+
+        Currency curr { get; set; }
+
+        Type type { get; set; }
+
         //One of the five people available to choose
         //IDs of 'person', using modulo to confirm important info
         /*
@@ -51,24 +85,40 @@ namespace Game
         enum Type {
 
         }
+
+        Player(string name, Currency curr, Type type) {
+            this.name = name; this.curr = curr; this.type = type;
+        }
+        
     }
 
     //=====LOCATION OBJECTS=====//
 
     // Abstract class that can be activated
     abstract class Space {
-        public string outputDesc { get; set; }
+        public string[] outputDesc { get; set; }
+
+        /*
+         * 0. Fail Unlock
+         * 1. First introduction
+         * 2. Minigame Faliure
+         * 3. Minigame Pass
+         * 4. Updated Introduction
+         */
+        protected int level { get; set; }
 
         public string name { get; set; } // Used in command line
 
-        public string unlockKey { get; set; }
+        public string unlock { get; set; }
 
         public abstract string activate(Save state);
 
-        protected Space(string outputDesc, string name) {
+        protected Space(string[] outputDesc, string name) {
             this.outputDesc = outputDesc;
             this.name = name;
         }
+
+        protected void incLevel() { level++; }
     }
 
     /*
@@ -78,12 +128,17 @@ namespace Game
      */
     class Location : Space {
 
-        Location(string outputDesc, string name) : base(outputDesc, name) {
+        HashSet<Area> areas;
 
+        HashSet<String> pointers;
+
+        Location(string[] outputDesc, string name) : base(outputDesc, name) {
+            this.areas = new HashSet<Area>();
+            this.pointers = new HashSet<String>();
         }
 
         public override string activate(Save state = null) {
-            return outputDesc;
+            return outputDesc[level];
         }
 
     }
@@ -95,12 +150,14 @@ namespace Game
      */
     class Area : Space {
 
-        Area(string outputDesc, string name) : base(outputDesc, name) {
+        AreaStage stage;
 
+        Area(string[] outputDesc, string name, AreaStage stage) : base(outputDesc, name) {
+            this.stage = stage;
         }
 
         public override string activate(Save state = null) {
-            return outputDesc;
+            return outputDesc[level];
         }
 
     }
@@ -114,13 +171,23 @@ namespace Game
      * 5. Item Gained
      * 6. Currency Earned (Array)
      */
-    struct AreaStage {
+    public struct AreaStage {
+        string minigame;
 
+        string audio;
+
+        string image;
+
+        string sfx;
+
+        string item; // Refrence to an item (to save space)
+
+        (int, int)[] currency; // [ID, Amt.]
     }
 
     //Custom data structure of locations
     class Map {
-
+        HashSet<Location> locs;
     }
 
     //=====ITEM OBJECTS=====//
@@ -148,24 +215,10 @@ namespace Game
     //Currency can be used either as a skill point/payment item
     class Currency : Item
     {
-        public int amount = 0;
+        public int amount;
 
-        public Currency(string itemname, byte id) : base(itemname, id) {
-
-        }
-    }
-
-    //Accessories don't actually hold any use in specific
-    class Accessory : Item
-    {
-        //Wether or not the item can be sold
-        public bool canSell { get; set; }
-
-        //The item's value
-        public int value { get; set; }
-
-        public Accessory(string itemname, byte id) : base(itemname, id) {
-            
+        public Currency(string itemname, byte id, int amount = 0) : base(itemname, id) {
+            this.amount = amount;
         }
     }
 
@@ -189,6 +242,8 @@ namespace Game
     //A document item, stored in inventory
     class Doc : Tool
     {
+        string output = "Read ";
+
         //A string of all of the document's inner details
         private string documentContents { get; set; }
     
@@ -208,8 +263,25 @@ namespace Game
         //How quick can it be used
         public int speed { get; set; }
 
-        public Weapon(string itemname, byte id) : base(itemname, id) {
-            
+        public Weapon(string itemname, byte id, int dmg, int acc, int spd) : base(itemname, id) {
+            this.damage = dmg; this.accuracy = acc; this.speed = spd;
         }
+    }
+
+    class Inventory {
+        public HashSet<Item> items { get; set; }
+
+        public bool find() {
+            return true;
+        }
+
+        public string list() {
+            return "";
+        }
+
+        public string desc() {
+            return "";
+        }
+
     }
 }
