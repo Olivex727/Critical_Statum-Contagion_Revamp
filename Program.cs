@@ -13,8 +13,8 @@ namespace Critical_Statum_Contagion_Revamp
 
             //TEST STAGE
 
-            Save lol = new Save();
-            Tool x = new Tool();
+            /*Save lol = new Save();
+            /Tool x = new Tool();
             x.init("axe", 2);
 
             lol.addToInvent(x);
@@ -22,6 +22,8 @@ namespace Critical_Statum_Contagion_Revamp
             lol.removeFromInvent(x.name);
 
             Console.WriteLine("");
+
+            */
 
             //TEST STAGE
 
@@ -44,8 +46,16 @@ namespace Critical_Statum_Contagion_Revamp
         }
     }
 
+    // Use String -> Method thingy
+    // All minigames return a boolean
     class Minigames
     {
-
+        /*
+        MINIGAMES:
+        - Combat
+        - Corrupted Combat
+        - Password (Simple Area Input)
+        -
+        */
     }
 }
