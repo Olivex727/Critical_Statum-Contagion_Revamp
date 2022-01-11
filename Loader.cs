@@ -9,19 +9,27 @@ namespace Loader {
             return "";
         }
 
-        static void saveGame(Save game) {
+        public string saveGame(Save game, string file) {
+            return "Game saved succsessfully";
+        }
 
+        public string clearGame(string file) {
+            return "Game data cleared succsessfully";
         }
         
-        static Save loadGame() {
-            return new Save();
+        public Tuple<Save, string> loadGame(string file) {
+            return Tuple.Create(new Save(), "Game loaded succsessfully");
         }
 
-        static private void writeFile() {
+        public string listSaves() {
+            return "";
+        }
+
+        private void writeFile() {
 
         }
 
-        static private void readFile() {
+        private void readFile() {
             
         }
 

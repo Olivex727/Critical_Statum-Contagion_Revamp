@@ -35,7 +35,11 @@ namespace Game
             return "";
         }
 
-        public string goTo() {
+        public string goTo(string loc) {
+            return "";
+        }
+
+        public string look() {
             return "";
         }
 
@@ -188,6 +192,10 @@ namespace Game
     //Custom data structure of locations
     class Map {
         HashSet<Location> locs;
+
+        public string display() {
+            return "";
+        }
     }
 
     //=====ITEM OBJECTS=====//
@@ -205,6 +213,8 @@ namespace Game
 
         //What Person can use the item
         public byte usageID { get; set; }
+
+        public string desc { get; set; }
 
         public Item(string itemname, byte id) {
             name = itemname;
@@ -240,10 +250,8 @@ namespace Game
     }
 
     //A document item, stored in inventory
-    class Doc : Tool
+    class Doc : Item
     {
-        string output = "Read ";
-
         //A string of all of the document's inner details
         private string documentContents { get; set; }
     
@@ -271,17 +279,20 @@ namespace Game
     class Inventory {
         public HashSet<Item> items { get; set; }
 
-        public bool find() {
+        public bool find(string item) {
             return true;
         }
 
-        public string list() {
+        public string list(string group) {
             return "";
         }
 
-        public string desc() {
+        public string desc(string item) {
             return "";
         }
 
+        public string read(string item) {
+            return "";
+        }
     }
 }
