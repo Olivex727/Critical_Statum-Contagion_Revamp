@@ -39,10 +39,17 @@ namespace Critical_Statum_Contagion_Revamp
 
             while (input != "exit") {
                 // Proccess Stage
-                Commands.run(input);
+                #pragma warning disable CS0168
+                try {
+                    Commands.run(input);
+                } catch (NullReferenceException e) {
+                    print("An error has occured when executing the entered command."
+                    + "\nHave you loaded a save file or started a new game?");
+                }
+                #pragma warning restore CS0168
 
                 // Input Stage
-                Console.Write("> ");
+                Console.Write("\n> ");
                 input = Console.ReadLine();
             }
 
@@ -61,7 +68,7 @@ namespace Critical_Statum_Contagion_Revamp
         };
 
         static Dictionary<String, String> help = new Dictionary<String, String>() {
-            {"inventory", "lol"}
+            {"inventory", "inventory ..."}
         };
 
         /*
@@ -72,10 +79,11 @@ namespace Critical_Statum_Contagion_Revamp
             - Description   (desc)
             - Find          (find)
         - Wallet        (wallet)
-        - Read          (docs)
+        - Read          (read)
         - GoTo          (goto)
         - Look Around   (look)
         - Map           (map)
+        - New Game      (newgame)
         - Data          (data)
             - Save          (save)
             - Load          (load)
@@ -140,21 +148,23 @@ namespace Critical_Statum_Contagion_Revamp
                 }
             } else if (list[0] == "data") {
                 DataLoader dl = new DataLoader();
-                if (list.Length != 3) {
-                    print(err[1]);
-                } else if (list[1] == "save") {
-                    print("Attempting to save to file '" + list[2] + "' ...");
-                    print(dl.saveGame(Program.game, list[2]));
-                } else if (list[1] == "load") {
-                    print("Attempting to load file '" + list[2] + "' ...");
-                    Tuple<Save, string> t = dl.loadGame(list[2]);
-                    print(t.Item2);
-                    if (t.Item1 != null) {
-                        Program.game = t.Item1;
+                if (list.Length == 3) {
+                    if (list[1] == "save") {
+                        print("Attempting to save to file '" + list[2] + "' ...");
+                        print(dl.saveGame(Program.game, list[2]));
+                    } else if (list[1] == "load") {
+                        print("Attempting to load file '" + list[2] + "' ...");
+                        Tuple<Save, string> t = dl.loadGame(list[2]);
+                        print(t.Item2);
+                        if (t.Item1 != null) {
+                            Program.game = t.Item1;
+                        }
+                    } else if (list[1] == "clear") {
+                        print("Attempting to clear file '" + list[2] + "' ...");
+                        print(dl.clearGame(list[2]));
                     }
-                } else if (list[1] == "clear") {
-                    print("Attempting to clear file '" + list[2] + "' ...");
-                    print(dl.clearGame(list[2]));
+                } else if (list.Length != 2) {
+                    print(err[1]);
                 } else if (list[1] == "list") {
                     print(dl.listSaves());
                 }
@@ -168,7 +178,13 @@ namespace Critical_Statum_Contagion_Revamp
                     }
                     print(str);
                 } else if (list.Length == 2) {
-                    if (help.ContainsKey(list[1])){
+                    if (list[1] == "list") {
+                        string str = "";
+                        foreach (String s in help.Keys) {
+                            str += s + "\n";
+                        }
+                        print(str);
+                    } else if (help.ContainsKey(list[1])){
                         print(help[list[1]]);
                     } else {
                         print(err[3]);

@@ -33,6 +33,10 @@ namespace Loader {
             
         }
 
+        public Tuple<Save, string> newGame() {
+            return Tuple.Create(new Save(), "Game created succsessfully");
+        }
+
     }
 
     class Decoder {
