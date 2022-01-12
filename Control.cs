@@ -220,15 +220,18 @@ namespace Control {
                         print(err[4]+list[1]+err[5]);
                     }
                 }
-            } else if (list[0] == "system") {
+            } else if (list[0] == "sys") {
                 if (list.Length != 2) {
                     print(err[2]);
                 } else {
-                    int act = game.act;
+                    int act = 0;
+                    #pragma warning disable CS0168
+                    try { act = game.act; } catch (Exception e) { act = 0; }
+                    #pragma warning restore CS0168
                     if (list[1] == "info") {
                         print(info[act]);
                     } else if (list[1] == "date") {
-                        print(date[act]);
+                        print(date[act]+", "+DateTime.Now.ToString("HH:mm:ss"));
                     } else if (list[1] == "clean") {
                         print("Clean unsucsessful. Please contact your IT staff member.");
                     } else {

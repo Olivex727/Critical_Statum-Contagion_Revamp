@@ -33,9 +33,9 @@ credits                             View the game credits.
 /exit|
 exit                                Exit the game.
 /system|
-system info                         Get the terminal's system information.
-system date                         Get the current date.
-system clean                        Run antivirus software.
+sys info                            Get the terminal's system information.
+sys date                            Get the current date.
+sys clean                           Run antivirus software.
 /cli|
 cli color <color>                   Change the command line's colour (white = 1, blue = 2, yellow = 3, green = 4).
 cli speed <speed>                   Change the text scroll speed in charachters per millisecond.
