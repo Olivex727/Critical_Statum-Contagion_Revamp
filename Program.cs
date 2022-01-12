@@ -17,7 +17,7 @@ namespace Critical_Statum_Contagion_Revamp
             string systxt = dl.readFileComplete("/text/sysinfo.txt");
             Commands.load(helptxt, systxt);
 
-            Console.WriteLine("CRITICAL STATUM: CONTAGION");
+            Console.WriteLine(dl.readFileComplete("/text/logo.txt"));
 
             //TEST STAGE
 
