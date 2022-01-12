@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Loader;
 
+#pragma warning disable CS0169 // REMOVE LATER
+
 namespace Game
 {
 
@@ -24,10 +26,13 @@ namespace Game
 
         public Inventory invent { get; set; }
 
+        public int act;
+
         // Creates basic save to load on
         public Save() {
             invent = new Inventory();
             players = new Player[5];
+            act = 0;
         }
 
         // Creates a string of encoded data

@@ -1,9 +1,12 @@
 using Game;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Loader {
     class DataLoader {
+
+        string dir = Directory.GetCurrentDirectory();
 
         public string loadData(string name, string classtype) {
             return "";
@@ -33,7 +36,17 @@ namespace Loader {
             
         }
 
-        public Tuple<Save, string> newGame() {
+        public string readFileComplete(string file) {
+            string text = "";
+            try {
+                text = File.ReadAllText(dir+file);
+            } catch (IOException e) {
+                Console.WriteLine(e.Message);
+            }
+            return text;
+        }
+
+        public static Tuple<Save, string> newGame() {
             return Tuple.Create(new Save(), "Game created succsessfully");
         }
 
