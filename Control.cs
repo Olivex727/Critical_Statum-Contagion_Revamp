@@ -20,7 +20,7 @@ namespace Control {
         static int[] settings = { 4, 5, 1 };
 
         public static void startup() {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Green; //White, Dark Cyan, Yellow, Green
 
             try {
             DataLoader dl = new DataLoader();
