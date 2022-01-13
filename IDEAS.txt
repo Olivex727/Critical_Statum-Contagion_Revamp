@@ -74,7 +74,6 @@ TARISKOR:
 - (Hist) Fall into Modern Dark Ages
 - (Hist) Coloran Z-Flu Epidemic
 
-
 SIAM:
 - (Cons) News Headline: Biological Warfare in the Siamise Revolution
 - (Cons) SOIA Report: Development of SAC Virus to Maintian Middle Kingdom Hold
