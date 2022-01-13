@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Game;
 using System.IO;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace Control {
     static class Terminal
@@ -16,9 +17,11 @@ namespace Control {
 
         public static HashSet<string> errorLog = new HashSet<string>();
 
-        static int[] settings = { 0, 0, 1 };
+        static int[] settings = { 4, 5, 1 };
 
         public static void startup() {
+            Console.ForegroundColor = ConsoleColor.Green;
+
             try {
             DataLoader dl = new DataLoader();
             string helptxt = dl.readFileComplete("/text/help.txt");
@@ -31,7 +34,7 @@ namespace Control {
 
             Commands.load(helptxt, systxt, itemtxt, doctxt, tooltxt, weptxt);
 
-            print(dl.readFileComplete("/text/logo.txt"));
+            print(dl.readFileComplete("/text/logo.txt"), 2);
 
             } catch (IOException e) {
                 onload(e);
@@ -45,7 +48,7 @@ namespace Control {
         }
 
         private static void run() {
-            Console.Write("> ");
+            print("> ", 0, true);
             string input = Console.ReadLine();
 
             while (input != "exit") {
@@ -61,24 +64,69 @@ namespace Control {
                 #pragma warning restore CS0168
 
                 // Input Stage
-                Console.Write("\n> ");
+                print("\n> ", 0, true);
                 input = Console.ReadLine();
                 
             }
+
+            print("Shutting down terminal ...");
         }
 
         public static void changeSetting(int setting, int value) {
 
         }
 
+        private static char[] printQueue;
+
+        private static int printPos;
+
+        private static bool printing;
+
         public static void print(string str, int overrideSpeed = -1, bool overrideTyping = false) {
-            Console.WriteLine(str);
+            int speed = 0;
+
+            if (settings[1] == 0 || overrideSpeed == 0) {
+                if (!overrideTyping) { Console.WriteLine(str); }
+                else { Console.Write(str); }
+            } else {
+                if (!overrideTyping) {
+                    str += "\n";
+                }
+                printQueue = str.ToCharArray();
+                if (overrideSpeed == -1) {
+                    speed = settings[1];
+                    printPos = 0;
+                    printing = true;
+                } else {
+                    speed = overrideSpeed;
+                    printPos = 0;
+                    printing = true;
+                }
+            }
+
+            while (printing) {
+                timePrint();
+                Thread.Sleep(speed);
+            }
+        }
+
+        private static void timePrint() {
+            if (printing) {
+                if (printPos <= printQueue.Length - 1) {
+                    Console.Write(printQueue[printPos]);
+                    printPos++;
+                } else {
+                    printPos = 0;
+                    printing = false;
+                    printQueue = null;
+                }
+            }
         }
 
         public static Player[] introduction() {
             string introtext1 = "An error occured when loading the 1st indroduction sequence.";
             string introtext2 = "An error occured when loading the 2nd indroduction sequence.";
-            const int introspeed = 10;
+            const int introspeed = 75;
             DataLoader dl = new DataLoader();
             try {
                 introtext1 = dl.readFileComplete("/text/introduction-1.txt");
