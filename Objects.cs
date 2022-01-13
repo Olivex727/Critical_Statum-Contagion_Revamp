@@ -69,6 +69,14 @@ namespace Game
             return "";
         }
 
+        public string teamList() {
+            return "";
+        }
+
+        public string upgrade(int member) {
+            return "";
+        }
+
         public string toString() {
             return "";
         }
@@ -86,11 +94,11 @@ namespace Game
 
         public string name { get; set; }
 
-        Currency curr { get; set; }
+        public Currency curr { get; set; }
 
-        Type type { get; set; }
+        public Type type { get; set; }
 
-        int level = 1;
+        public int level = 1;
 
         //One of the five people available to choose
         //IDs of 'person', using modulo to confirm important info
@@ -113,7 +121,7 @@ namespace Game
          * Scientist - 125
          * 
         */
-        enum Type {
+        public enum Type {
             Leader = 0, Pilot = 1, Mechanic = 2, Marksman = 3, Hacker = 4
         }
 
@@ -121,8 +129,8 @@ namespace Game
             this.name = name;
         }
 
-        Player(string name, Currency curr, Type type) {
-            this.name = name; this.curr = curr; this.type = type;
+        public Player(string name, Currency curr, Type type, int level = 1) {
+            this.name = name; this.curr = curr; this.type = type; this.level = level;
         }
 
         public string toString() {
@@ -285,6 +293,15 @@ namespace Game
 
         public Currency(string itemname, byte id, int amount = 0) : base(itemname, id, "") {
             this.amount = amount;
+        }
+
+        public bool pay(int amount) {
+            if (this.amount >= amount) {
+                this.amount -= amount;
+                return true;
+            } else {
+                return false;
+            }
         }
 
         new public string toString() {

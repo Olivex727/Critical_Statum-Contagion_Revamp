@@ -5,8 +5,9 @@
         "level":1,
         "curr":{
             "name":"Gasoline",
-            "useageID":0,
-            "amount":0
+            "usageID":0,
+            "amount":0,
+            "desc":""
         }
     },
     {
@@ -15,8 +16,9 @@
         "level":1,
         "curr":{
             "name":"Power cells",
-            "useageID":1,
-            "amount":0
+            "usageID":1,
+            "amount":0,
+            "desc":""
         }
     },
     {
@@ -25,8 +27,9 @@
         "level":1,
         "curr":{
             "name":"Material",
-            "useageID":2,
-            "amount":0
+            "usageID":2,
+            "amount":0,
+            "desc":""
         }
     },
     {
@@ -35,8 +38,9 @@
         "level":1,
         "curr":{
             "name":"Ammo",
-            "useageID":3,
-            "amount":0
+            "usageID":3,
+            "amount":0,
+            "desc":""
         }
     },
     {
@@ -45,8 +49,9 @@
         "level":1,
         "curr":{
             "name":"Tech",
-            "useageID":4,
-            "amount":0
+            "usageID":4,
+            "amount":0,
+            "desc":""
         }
     }
 ]

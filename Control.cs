@@ -4,6 +4,7 @@ using Loader;
 using System.Collections.Generic;
 using Game;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Control {
     static class Terminal
@@ -78,15 +79,16 @@ namespace Control {
             string introtext1 = "An error occured when loading the 1st indroduction sequence.";
             string introtext2 = "An error occured when loading the 2nd indroduction sequence.";
             const int introspeed = 10;
+            DataLoader dl = new DataLoader();
             try {
-                DataLoader dl = new DataLoader();
                 introtext1 = dl.readFileComplete("/text/introduction-1.txt");
                 introtext2 = dl.readFileComplete("/text/introduction-2.txt");
             } catch (Exception e) {
                 onload(e);
             }
             print(introtext1, introspeed);
-            Player[] chars = new Player[5];
+
+            Player[] chars = dl.deserializePlayers();
             string[] names = new string[5];
             print("Leader Name:   ", settings[1], true); names[0] = Console.ReadLine();
             print("Pilot Name:    ", settings[1], true); names[1] = Console.ReadLine();
@@ -96,14 +98,13 @@ namespace Control {
             print(introtext2, introspeed);
 
             for (int i = 0; i < 5; i++) {
-                //chars[i] = new Player();
+                chars[i].name = names[i];
             }
             return chars;
         }
 
         public static void onload(Exception err) {
-            errorLog.Add(err.Message);
-            errorLog.Add(err.StackTrace);
+            errorLog.Add("Error at " + DateTime.Now.ToString("hh:mm:ss tt") + "; " + err.Message + "\n"+err.StackTrace);
         }
     }
 
@@ -128,30 +129,6 @@ namespace Control {
         static Dictionary<string, Doc> docs;
         static Dictionary<string, Weapon> weapons;
         static Dictionary<string, Tool> tools;
-
-        /*
-        COMMANDS:
-        - Inventory     (inventory)
-            - List Items    (list)
-                - *, tools, weapons
-            - Description   (desc)
-            - Find          (find)
-        - Wallet        (wallet)
-        - Read          (read)
-        - GoTo          (goto)
-        - Look Around   (look)
-        - Map           (map)
-        - New Game      (newgame)
-        - Data          (data)
-            - Save          (save)
-            - Load          (load)
-            - Clear         (clear)
-                - File Name (<name>)    [for all 3 commands]
-            - List          (list)
-        - Help          (help)
-            - Commands      ([<command>])
-        - Exit          (exit)
-        */
 
         public static Save run(string input, Save game) {
             string[] list = input.Split(" ");
@@ -316,6 +293,22 @@ namespace Control {
                         print(s);
                     }
                     print("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                }
+            } else if (list[0] == "team") {
+                if (list.Length == 3) {
+                    if (list[1] == "upgrade") {
+                        if (int.TryParse(list[2], out int mem)) {
+                            print(game.upgrade(mem));
+                        }
+                    } else {
+                        print(err[3]);
+                    }
+                } else if (list.Length != 2) {
+                    print(err[2]);
+                } else if (list[1] == "list") {
+                    print(game.teamList());
+                } else {
+                    print(err[2]);
                 }
             } else {
                 print(err[0]+input+err[1]);

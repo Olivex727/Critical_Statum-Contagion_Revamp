@@ -2,6 +2,7 @@ using Game;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Loader {
     class DataLoader {
@@ -48,6 +49,14 @@ namespace Loader {
 
         public static Tuple<Save, string> newGame() {
             return Tuple.Create(new Save(false), "Game created succsessfully");
+        }
+
+        public Player[] deserializePlayers() {
+            using (StreamReader file = File.OpenText(dir+"/ReadOnly/Players.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                return (Player[])serializer.Deserialize(file, typeof(Player[]));
+            }
         }
 
     }

@@ -11,8 +11,11 @@ help general                        Get general help on the operation of the ter
 inventory list <group>              List the items in the inventory associated with: tools, weapons, docs, *.
 inventory find <item>               Determine if a specified named item is in the inventory.
 inventory desc <item>               Get the description of a specified named item.
+/team|
+team list                           List the team members.
+team upgrade <number>               Use skillpoints to upgrade the team members.
 /wallet|
-wallet                              Get the contents of your wallet i.e. currencies.
+wallet                              Get the contents of your wallet: credits and skillpoints.
 /read|
 read <item>                         Read a document in your inventory.
 /goto|
