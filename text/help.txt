@@ -39,4 +39,6 @@ sys clean                           Run antivirus software.
 /cli|
 cli color <color>                   Change the command line's colour (white = 1, blue = 2, yellow = 3, green = 4).
 cli speed <speed>                   Change the text scroll speed in charachters per millisecond.
-cli space <spacing>                 Amount of lines in-between each command prompt./|
+cli space <spacing>                 Amount of lines in-between each command prompt.
+/report|
+report                              Get the console error report./|

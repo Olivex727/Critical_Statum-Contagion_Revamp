@@ -8,8 +8,8 @@ namespace Loader {
 
         string dir = Directory.GetCurrentDirectory();
 
-        public string loadData(string name, string classtype) {
-            return "";
+        public static Map loadMapData(string name) {
+            return new Map();
         }
 
         public string saveGame(Save game, string file) {
@@ -47,30 +47,69 @@ namespace Loader {
         }
 
         public static Tuple<Save, string> newGame() {
-            return Tuple.Create(new Save(), "Game created succsessfully");
+            return Tuple.Create(new Save(false), "Game created succsessfully");
         }
 
     }
 
     class Decoder {
 
-        public Save decodeSave(string save) {
+        public static Save decodeSave(string save) {
             return null;
         }
         
-        public Map decodeMap(string map) {
+        public static Map decodeMap(string map) {
             return null;
         }
 
-        public Item decodeItem(string item) {
+        public static Dictionary<string, Item> decodeItemMass(string item) {
+            string[] items = item.Split(";");
+            Dictionary<string, Item> dic = new Dictionary<string, Item>();
+            foreach (string i in items) {
+                string[] it = i.Split(",");
+                dic.Add(it[0], new Item(it[0], byte.Parse(it[1]), it[2]));
+            }
+            return dic;
+        }
+
+        public static Dictionary<string, Tool> decodeToolMass(string item) {
+            string[] items = item.Split(";");
+            Dictionary<string, Tool> dic = new Dictionary<string, Tool>();
+            foreach (string i in items) {
+                string[] it = i.Split(",");
+                dic.Add(it[0], new Tool(it[0], byte.Parse(it[1]), it[2]));
+            }
+            return dic;
+        }
+
+        public static Dictionary<string, Doc> decodeDocMass(string item) {
+            string[] items = item.Split(";");
+            Dictionary<string, Doc> dic = new Dictionary<string, Doc>();
+            foreach (string i in items) {
+                string[] it = i.Split(",");
+                dic.Add(it[0], new Doc(it[0], byte.Parse(it[1]), it[2], it[3]));
+            }
+            return dic;
+        }
+
+        public static Dictionary<string, Weapon> decodeWeaponMass(string item) {
+            string[] items = item.Split(";");
+            Dictionary<string, Weapon> dic = new Dictionary<string, Weapon>();
+            foreach (string i in items) {
+                string[] it = i.Split(",");
+                dic.Add(
+                    it[0],
+                    new Weapon(it[0], byte.Parse(it[1]), it[2], int.Parse(it[3]), int.Parse(it[4]), int.Parse(it[5]))
+                    );
+            }
+            return dic;
+        }
+
+        public static Space decodeSpace(string space) {
             return null;
         }
 
-        public Space decodeSpace(string space) {
-            return null;
-        }
-
-        public Space decodeArea(string area) {
+        public static Area decodeArea(string area) {
             return null;
         }
 

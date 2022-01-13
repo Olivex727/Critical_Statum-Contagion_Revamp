@@ -12,34 +12,7 @@ namespace Critical_Statum_Contagion_Revamp
 
         static void Main(string[] args)
         {
-            DataLoader dl = new DataLoader();
-            string helptxt = dl.readFileComplete("/text/help.txt");
-            string systxt = dl.readFileComplete("/text/sysinfo.txt");
-            Commands.load(helptxt, systxt);
-
-            Console.WriteLine(dl.readFileComplete("/text/logo.txt"));
-
-            //TEST STAGE
-
-            /*Save lol = new Save();
-            /Tool x = new Tool();
-            x.init("axe", 2);
-
-            lol.addToInvent(x);
-            lol.addToInvent(x);
-            lol.removeFromInvent(x.name);
-
-            Console.WriteLine("");
-
-            */
-
-            //TEST STAGE
-
-            //Main Game Loop -- Relplace with keypress 'enter' event
-
-            Terminal.run();
-
-
+            Terminal.startup();
         }
     }
     

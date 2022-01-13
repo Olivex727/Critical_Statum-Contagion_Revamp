@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using Loader;
+using static Control.Terminal;
 
 #pragma warning disable CS0169 // REMOVE LATER
 
@@ -28,11 +30,26 @@ namespace Game
 
         public int act;
 
+        public Currency credits { get; set; }
+
         // Creates basic save to load on
-        public Save() {
-            invent = new Inventory();
-            players = new Player[5];
-            act = 0;
+        public Save(bool blank = true) {
+            if (!blank) {
+                invent = new Inventory();
+                players = new Player[5];
+                try {
+                    map = DataLoader.loadMapData("tutorial");
+                    loc = map.getFirstLoc();
+                } catch (IOException e) {
+                    onload(e);
+                    print("An error occured when attempting to load the tutorial data.");
+                } catch (NullReferenceException e) {
+                    onload(e);
+                    print("An error occured when attempting to prepare the tutorial.");
+                }
+                act = 0;
+                credits = new Currency("Credits", 0, 200);
+            }
         }
 
         // Creates a string of encoded data
@@ -52,6 +69,9 @@ namespace Game
             return "";
         }
 
+        public string toString() {
+            return "";
+        }
     }
 
     /*
@@ -64,11 +84,13 @@ namespace Game
     class Player
     {
 
-        string name { get; set; }
+        public string name { get; set; }
 
         Currency curr { get; set; }
 
         Type type { get; set; }
+
+        int level = 1;
 
         //One of the five people available to choose
         //IDs of 'person', using modulo to confirm important info
@@ -92,13 +114,20 @@ namespace Game
          * 
         */
         enum Type {
+            Leader = 0, Pilot = 1, Mechanic = 2, Marksman = 3, Hacker = 4
+        }
 
+        Player(string name) {
+            this.name = name;
         }
 
         Player(string name, Currency curr, Type type) {
             this.name = name; this.curr = curr; this.type = type;
         }
-        
+
+        public string toString() {
+            return "";
+        }
     }
 
     //=====LOCATION OBJECTS=====//
@@ -128,6 +157,10 @@ namespace Game
         }
 
         protected void incLevel() { level++; }
+
+        public string toString() {
+            return "";
+        }
     }
 
     /*
@@ -141,9 +174,12 @@ namespace Game
 
         HashSet<String> pointers;
 
-        Location(string[] outputDesc, string name) : base(outputDesc, name) {
+        public bool entry;
+
+        Location(string[] outputDesc, string name, bool entry) : base(outputDesc, name) {
             this.areas = new HashSet<Area>();
             this.pointers = new HashSet<String>();
+            this.entry = entry;
         }
 
         public override string activate(Save state = null) {
@@ -168,7 +204,6 @@ namespace Game
         public override string activate(Save state = null) {
             return outputDesc[level];
         }
-
     }
 
     /*
@@ -196,9 +231,20 @@ namespace Game
 
     //Custom data structure of locations
     class Map {
-        HashSet<Location> locs;
+        private HashSet<Location> locs;
+
+        public Location getFirstLoc() {
+            foreach (Location l in locs) {
+                if (l.entry) { return l; }
+            }
+            throw new NullReferenceException();
+        }
 
         public string display() {
+            return "";
+        }
+
+        public string toString() {
             return "";
         }
     }
@@ -221,9 +267,14 @@ namespace Game
 
         public string desc { get; set; }
 
-        public Item(string itemname, byte id) {
+        public Item(string itemname, byte id, string desc) {
             name = itemname;
             usageID = id;
+            this.desc = desc;
+        }
+
+        public string toString() {
+            return "";
         }
     }
 
@@ -232,8 +283,12 @@ namespace Game
     {
         public int amount;
 
-        public Currency(string itemname, byte id, int amount = 0) : base(itemname, id) {
+        public Currency(string itemname, byte id, int amount = 0) : base(itemname, id, "") {
             this.amount = amount;
+        }
+
+        new public string toString() {
+            return "";
         }
     }
 
@@ -248,8 +303,12 @@ namespace Game
             return output;
         }
 
-        public Tool(string itemname, byte id) : base(itemname, id) {
+        public Tool(string itemname, byte id, string desc) : base(itemname, id, desc) {
             
+        }
+
+        new public string toString() {
+            return "";
         }
         
     }
@@ -258,10 +317,14 @@ namespace Game
     class Doc : Item
     {
         //A string of all of the document's inner details
-        private string documentContents { get; set; }
+        private string contents { get; set; }
     
-        public Doc(string itemname, byte id) : base(itemname, id) {
-            
+        public Doc(string itemname, byte id, string desc, string contents) : base(itemname, id, desc) {
+            this.contents = contents;
+        }
+
+        new public string toString() {
+            return "";
         }
     }
 
@@ -276,13 +339,21 @@ namespace Game
         //How quick can it be used
         public int speed { get; set; }
 
-        public Weapon(string itemname, byte id, int dmg, int acc, int spd) : base(itemname, id) {
+        public Weapon(string itemname, byte id, string desc, int dmg, int acc, int spd) : base(itemname, id, desc) {
             this.damage = dmg; this.accuracy = acc; this.speed = spd;
+        }
+
+        new public string toString() {
+            return "";
         }
     }
 
     class Inventory {
         public HashSet<Item> items { get; set; }
+
+        public Inventory() {
+            items = new HashSet<Item>();
+        }
 
         public bool find(string item) {
             return true;
@@ -297,6 +368,10 @@ namespace Game
         }
 
         public string read(string item) {
+            return "";
+        }
+
+        public string toString() {
             return "";
         }
     }

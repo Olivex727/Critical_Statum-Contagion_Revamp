@@ -3,6 +3,7 @@ using static Control.Terminal;
 using Loader;
 using System.Collections.Generic;
 using Game;
+using System.IO;
 
 namespace Control {
     static class Terminal
@@ -10,11 +11,39 @@ namespace Control {
 
         private static Save game;
 
-        private static string[] prevcommands;
+        //private static string[] prevcommands;
+
+        public static HashSet<string> errorLog = new HashSet<string>();
 
         static int[] settings = { 0, 0, 1 };
 
-        public static void run() {
+        public static void startup() {
+            try {
+            DataLoader dl = new DataLoader();
+            string helptxt = dl.readFileComplete("/text/help.txt");
+            string systxt = dl.readFileComplete("/text/sysinfo.txt");
+
+            string itemtxt = dl.readFileComplete("/ReadOnly/item.csv");
+            string doctxt = dl.readFileComplete("/ReadOnly/document.csv");
+            string tooltxt = dl.readFileComplete("/ReadOnly/tool.csv");
+            string weptxt = dl.readFileComplete("/ReadOnly/weapon.csv");
+
+            Commands.load(helptxt, systxt, itemtxt, doctxt, tooltxt, weptxt);
+
+            print(dl.readFileComplete("/text/logo.txt"));
+
+            } catch (IOException e) {
+                onload(e);
+                print("An error has occured while reading the game files. Please reinstall the game.");
+            } catch (Exception e) {
+                onload(e);
+                print("An error has occured while loading the game. Please reinstall or restart the game.");
+            } finally {
+                run();
+            }
+        }
+
+        private static void run() {
             Console.Write("> ");
             string input = Console.ReadLine();
 
@@ -26,6 +55,7 @@ namespace Control {
                 } catch (NullReferenceException e) {
                     print("An error has occured when executing the entered command."
                     + "\nHave you loaded a save file or started a new game?");
+                    onload(e);
                 }
                 #pragma warning restore CS0168
 
@@ -40,8 +70,40 @@ namespace Control {
 
         }
 
-        public static void print(string str) {
+        public static void print(string str, int overrideSpeed = -1, bool overrideTyping = false) {
             Console.WriteLine(str);
+        }
+
+        public static Player[] introduction() {
+            string introtext1 = "An error occured when loading the 1st indroduction sequence.";
+            string introtext2 = "An error occured when loading the 2nd indroduction sequence.";
+            const int introspeed = 10;
+            try {
+                DataLoader dl = new DataLoader();
+                introtext1 = dl.readFileComplete("/text/introduction-1.txt");
+                introtext2 = dl.readFileComplete("/text/introduction-2.txt");
+            } catch (Exception e) {
+                onload(e);
+            }
+            print(introtext1, introspeed);
+            Player[] chars = new Player[5];
+            string[] names = new string[5];
+            print("Leader Name:   ", settings[1], true); names[0] = Console.ReadLine();
+            print("Pilot Name:    ", settings[1], true); names[1] = Console.ReadLine();
+            print("Mechanic Name: ", settings[1], true); names[2] = Console.ReadLine();
+            print("Marksman Name: ", settings[1], true); names[3] = Console.ReadLine();
+            print("Hacker Name:   ", settings[1], true); names[4] = Console.ReadLine();
+            print(introtext2, introspeed);
+
+            for (int i = 0; i < 5; i++) {
+                //chars[i] = new Player();
+            }
+            return chars;
+        }
+
+        public static void onload(Exception err) {
+            errorLog.Add(err.Message);
+            errorLog.Add(err.StackTrace);
         }
     }
 
@@ -61,6 +123,11 @@ namespace Control {
         static string[] info;
 
         static string[] date;
+
+        static Dictionary<string, Item> items;
+        static Dictionary<string, Doc> docs;
+        static Dictionary<string, Weapon> weapons;
+        static Dictionary<string, Tool> tools;
 
         /*
         COMMANDS:
@@ -166,6 +233,8 @@ namespace Control {
                         print(t.Item2);
                         if (t.Item1 != null) {
                             game = t.Item1;  // AFFECTS SAVE
+                            game.players = Terminal.introduction();
+                            game = run("goto start", game);
                         } else {
                             print("Creation failed.");
                         }
@@ -226,7 +295,7 @@ namespace Control {
                 } else {
                     int act = 0;
                     #pragma warning disable CS0168
-                    try { act = game.act; } catch (Exception e) { act = 0; }
+                    try { act = game.act; } catch (Exception e) { onload(e); act = 0; }
                     #pragma warning restore CS0168
                     if (list[1] == "info") {
                         print(info[act]);
@@ -238,6 +307,16 @@ namespace Control {
                         print(err[3]);
                     }
                 }
+            } else if (list[0] == "report") {
+                if (list.Length != 1) {
+                    print(err[2]);
+                } else {
+                    print("- - - - - - - - - - - ERROR LOG - - - - - - - - - - -");
+                    foreach (string s in Terminal.errorLog) {
+                        print(s);
+                    }
+                    print("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                }
             } else {
                 print(err[0]+input+err[1]);
             }
@@ -245,7 +324,9 @@ namespace Control {
             return game;
         }
 
-        public static void load(string helptext, string systext) {
+        public static void load(
+            string helptext, string systext, string itemtxt, string doctxt, string tooltxt, string weptxt
+            ) {
             string[] set = helptext.Split("/");
 
             foreach (string s in set) {
@@ -270,6 +351,11 @@ namespace Control {
                     count++;
                 }
             }
+
+            items = Decoder.decodeItemMass(itemtxt);
+            docs = Decoder.decodeDocMass(doctxt);
+            weapons = Decoder.decodeWeaponMass(weptxt);
+            tools = Decoder.decodeToolMass(tooltxt);
         }
     }
 
