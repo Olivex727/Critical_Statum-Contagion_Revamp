@@ -25,8 +25,7 @@ ORGANISATION: Heath Committee of the New United Nations
 BODY:
 Due to recent reports of an unknown silicon-based parasite named SAC-26, an executive order has been requested of the
 HCUN to investigate and eradicate this virus by any means possible. The parasite is a neon blue/neon green crystal that
-feeds on the bodies of its host, eventually killing them by tearing through their organs. It is already known that the
-SAC series does not grow in a vacuum.
+feeds on the bodies of its host, eventually killing them by tearing through their organs.
 
 Due to this threat, the government of Oceana requests the HCUN to arrange a squadron consisting of a Leader, Pilot,
 Mechanic, Marksman and a Programmer. Each will have a ability that levels up over time with a max level of 25. The

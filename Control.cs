@@ -416,6 +416,7 @@ namespace Control {
         - Anagram
         - Hangman
         - Hacking
+        - Library
         */
     }
 }

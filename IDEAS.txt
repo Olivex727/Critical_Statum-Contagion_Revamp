@@ -1,32 +1,27 @@
-SIAM EXPOSITION:
 Add the region of 'Siam' or 'Middle Kingdom'. Make it so that SAC-2 was sponsored by the
 Sino-Oceanic Intellegence Agency (SOIA) to quell rebellions in Siam. Siam gained independence
 in 2230s. Xenith was hired to develop the first 3 strains. In Siam, the team will encounter an
 accidental outburst of experimental SAC-3.
 
-ODYSSEY (MARS) EXPOSITION:
 Due to the Mitapol scandal (2256-59), which was caused when some of the NUN Council was found
 sponsoring the Southex-Stellarim independnence wars (a colour revolution as Southex was libsoc)
 through a company called Mitapol. Xenith was not found out despite developing a dormant SAC-8
 strain in Stellarim colour revolutionaries to force them into the NUN after sessesion.
 
-WOLOSYD (and TENEX HQ) EXPOSITION:
 Then the UNPIC (New United Nations Prosecutorial Investigation Commitee, 2263-2266) corruption bust
 occured, which prevented many hidden documents from leakage. This mean Xenith was gaining more funds
 from the NUN to develop SAC-15.
 
-SPIRON EXPOSITION:
 In the early 2280s, a drug crisis was manufactured by Oceana to prevent the Neo-Soviets from
 libertarianising, reducing a trust in anarchism and more in internationalism. Xenith used the strain
 SAC-18B as a conduit for hacking the dopamine pathway. The crisis spilled over after a fabricated bust in 2281.
 
-LAB EXPOSITION:
 Oceana, unhappy with Xenith's accidental spill-over, threatened arrest. However Xenith escaped without
 being caught to a planet in the border regions. He spent the next 4 years developing towards SAC-26,
 and planned to make SAC-27. Xenith was infected by SAC-22, an earlier work developed in 2284.
 This is when Operation Contagion began.
 
-Getting all conspiracy documents unlocks the Conspiracist version of the four endings.
+Getting all 15 conspiracy documents and opening them unlocks the Conspiracist version of the five endings.
 
                                     Travelled               Travelled
                                     to Spiron               to Ventrn-426B
@@ -39,15 +34,74 @@ Crew evades     No Consp.           TRUE ENDING             SAC ENDING
 final boss
                 Consp.              GOOD ENDING             WHISTLEBLOWER ENDING
 
+Crew is         No Consp.                     FAILED ENDING
+defeated
+                Consp.                      CONSPIRACY ENDING
 
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 #   Ending          Type                Xenith      Conspiracy      SAC                     Crew                Notes
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 1   BAD             Coroner's Report    Killed      Not revealed    Spreads (26)            Pardoned
-2   ARREST          Coroner's Report    Killed      Not beleived    Spreads (26)            Silenced by SOIA
+2   ARREST          Coroner's Report    Killed      Discredited     Spreads (26)            Silenced by SOIA
 3   TRUE            Legal Case File     Arrested    Not revealed    Eradicated              Honoured            Canon to the A-Scenario
 4   GOOD            Legal Case File     Arrested    Revealed        Eradicated              Honoured            NSU libertarianises
 5   INFECTION       HCUN Incident Rep.  Escaped     Not revealed    Spreads (27)            Infected
 6   BURIED          HCUN Incident Rep.  Escaped     Buried          Spreads (27)            Burned w Evidence
 7   SAC             News Report         Escaped     Not revealed    Erad.(26);Spreads(27)   Honoured
 8   WHISTLEBLOWER   News Report         Escaped     Revealed        Eradicated              Whistleblowers      New corruption crisis
+9   FAILED          Coroner's Report    Escaped     Not revealed    Spreads (26)            Died
+10  CONSPIRACY      Coroner's Report    Escaped     Discredited     Spreads (26)            Died                Consp. is revealed but not trusted
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 SAC-27 kills all biological non-humans after 50 years. SAC-26 causes a serious international crisis, but not a genocide.
+
+There are 15 history documents in addition to the 10 for conspiracy.
+
+ONLY THE CONSPIRACY DOCUMENTS GO INTO THE INVENTORY. The history documents are available in libraries.
+
+WOLOSYD:
+- (Cons) News Headline: Mitapol Scandal Rocks New UN. Chancellor Arrested!
+- (Cons) Tenex Executive Memo: UNPIC scandal to distract from SAC
+
+- (Hist) Oceana
+- (Hist) World War 3
+- (Hist) Colorans and Spirons
+
+TARISKOR:
+- (Cons) UNPIC Report: Funding to Mitapol in support of Southex Colour Revolution
+
+- (Hist) Technological Revolution
+- (Hist) Fall into Modern Dark Ages
+- (Hist) Coloran Z-Flu Epidemic
+
+
+SIAM:
+- (Cons) News Headline: Biological Warfare in the Siamise Revolution
+- (Cons) SOIA Report: Development of SAC Virus to Maintian Middle Kingdom Hold
+
+- (Hist) The Neo-Soviet Union
+- (Hist) World War 4
+- (Hist) After the Dark Ages
+
+MARS:
+- (Cons) Letter from Stellarim's President: Strange Symptoms Amongst Cabinet
+
+- (Hist) The Second Great Depression
+- (Hist) The Emergence Period
+- (Hist) THe Dark-Age Solar System
+
+LAB1:
+- (Cons) Xenith's Diary: 2283
+- (Cons) Xenith's Diary: 2284
+
+SPIRON (+ Museum of Modern History and Technology):
+- (Cons) SOIA Report: Request for SAC-18B Drug [Same as in Lab 2]
+- (Cons) SOIA Report: The Internationalist Manifesto [Same as in Lab 2]
+
+- (Hist) Energy Exhibit
+- (Hist) Space Travel Exhibit
+- (Hist) The Decade of Seperation (2230s) Exhibit
+
+LAB2:
+- (Cons) SOIA Report: Request for SAC-18B Drug [Same as in Lab 2]
+- (Cons) SOIA Report: The Internationalist Manifesto [Same as in Lab 2]

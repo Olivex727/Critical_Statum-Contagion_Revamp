@@ -330,10 +330,10 @@ namespace Game
         
     }
 
-    //A document item, stored in inventory
+    //A document item, stored in inventory (Only the conspiracy documents)
     class Doc : Item
     {
-        //A string of all of the document's inner details
+        // A string of all of the document's inner details
         private string contents { get; set; }
     
         public Doc(string itemname, byte id, string desc, string contents) : base(itemname, id, desc) {
