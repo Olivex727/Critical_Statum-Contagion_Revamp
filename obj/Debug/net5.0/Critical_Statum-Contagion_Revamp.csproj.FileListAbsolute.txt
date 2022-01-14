@@ -31,3 +31,5 @@
 /home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.genruntimeconfig.cache
 /Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Newtonsoft.Json.dll
 /Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.csproj.CopyComplete
+/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/bin/Debug/net5.0/Newtonsoft.Json.dll
+/home/olivia/Desktop/dotnet/Critical_Statum-Contagion_Revamp/obj/Debug/net5.0/Critical_Statum-Contagion_Revamp.csproj.CopyComplete
