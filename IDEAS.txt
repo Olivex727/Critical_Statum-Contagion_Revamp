@@ -104,3 +104,11 @@ SPIRON (+ Museum of Modern History and Technology):
 LAB2:
 - (Cons) SOIA Report: Request for SAC-18B Drug [Same as in Lab 2]
 - (Cons) SOIA Report: The Internationalist Manifesto [Same as in Lab 2]
+
+
+Command Ideas:
+- sys rewards
+- cli clear
+- debug
+- cheat
+- Help extra commands (Ctrl+C to force stop, Arrows for prev commands)
