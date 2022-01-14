@@ -3,8 +3,8 @@ It is a distant time.
 
 Humanity has progressed far from the technology of today. In the early 21st century, humanity had contacted an alien
 race known as Colorans, starting a boom in innovation that led to prosperity. Eventually the Earth was gripped into a
-'modern dark age' charachterised by two world wars and a nuclear winter in-between. It wasn’t until the 23rd century
-when both races had recovered and discovered had a silicon-based-life civilisation, the Spirons.
+'modern dark age' charachterised by two world wars and a nuclear winter. It wasn’t until the 23rd century when both 
+races had recovered and discovered had a silicon-based-life civilisation, the Spirons.
 
 *
 
@@ -15,18 +15,18 @@ when both races had recovered and discovered had a silicon-based-life civilisati
 *
 
 *
-
-!! CLASSIFIED REPORT !!
 
 DATE: July 7, 2287
 TIME: 1935, Earth UTC-7
 LOC: New Vegas, NV
 ORGANISATION: Heath Committee of the New United Nations
+CODENAME: Contagion
+STATUS: Level VI Classified
 BODY:
-Due to recent reports of an unknown silicon-based parasite named SAC-26, an executive order has been requested of the
+Due to recent reports of an unknown silicon-based parasite named SAC-26, an order has been requested of the
 HCUN to investigate and eradicate this virus by any means possible. The parasite is a neon blue/neon green crystal that
 feeds on the bodies of its host, eventually killing them by tearing through their organs.
 
 Due to this threat, the government of Oceana requests the HCUN to arrange a squadron consisting of a Leader, Pilot,
-Mechanic, Marksman and a Programmer. Each will have a ability that levels up over time with a max level of 25. The
+Mechanic, Marksman and a Programmer. Each will have an ability that levels up over time with a max level of 25. The
 levels are the following: Charisma, Piloting, Tech. Knowledge, Attack and Intellect. The crew names are as follows:
