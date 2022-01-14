@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mnAxNkORKtg+kp6iVCBwAb/Du5vwSPtwRxYrEftuZBUWUraQ7lUvUg+5/BX7TgSdXv5oJD7HsN3t30mMR/ioPA==",
+  "success": true,
+  "projectFilePath": "/Users/oliverwalters/Desktop/Fun/Post-Scots/Critical_Statum-Contagion_Revamp/Critical_Statum-Contagion_Revamp.csproj",
+  "expectedPackageFiles": [
+    "/Users/oliverwalters/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,32 @@
+TENEX SYSTEMS LTD.
+Terminex Government QTerminal V10.8.
+This is a High-Security terminal provided to the Government of Oceania courtesy of TENEX.
+Operating system Tenex Basic® does not support Quantum operations or Q++ programming.
+Corrupted Storage: 0%/Today's Date: July 26, 2287
+|TENEX SYSTEMS LTD.
+Terminex Government QTerminal V10.8.0.
+This is a High-Security terminal provided to the Government of Oceania courtesy of TENEX.
+Operating system Tenex Basic® does not support Quantum operations or Q++ programming.
+Corrupted Storage: 2%/Today's Date: July 28, 2287
+|TENEX SYSTEMS LTD.
+Terminex Government QTerminal V10.8.1.
+This is a High-Security terminal provided to the Government of Oceania courtesy of TENEX.
+Operating system Tenex Basic® does not support Quantum operations or Q++ programming.
+Corrupted Storage: 4%/Today's Date: July 31, 2287
+|TENEX SYSTEMS LTD.
+Terminex Government QTerminal V10.8.1.
+This is a High-Security terminal provided to the Government of Oceania courtesy of TENEX.
+Operating system Tenex Basic® does not support Quantum operations or Q++ programming.
+Corrupted Storage: 8%/Today's Date: August 1, 2287
+|!!WARNING: High system corruption detected. Please run antivirus.
+TENEX SYSTEMS LTD.
+Terminex Government QTerminal V10.8.3.
+This is a High-Security terminal provided to the Government of Oceania courtesy of TENEX.
+Operating system Tenex Basic® does not support Quantum operations or Q++ programming.
+Corrupted Storage: 5øª%/Today's Date: ERROR TXO3021 - DATE NOT FOUND
+|!!WARNING: High system corruption detected. Please run antivirus.
+TENEX SYSTEMS LTD.
+Terminex Government QTerminal V10.8.3.
+This is a High-Security terminal provided to the Government of Oceania courtesy of TENEX.
+Operating system Tenex Basic® does not support Quantum operations or Q++ programming.
+Corrupted Storage: 92%/Today's Date: August 5, 2287

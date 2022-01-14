@@ -1,0 +1,47 @@
+general|
+This game does not auto-save. It attempts to imitate a very console-focused experience. The commands listed will only
+work if you are prompted with the '>' charachter. In minigames, the '$' prompt will be used. In this environment, the
+only commands will be 'help' and 'exit'.
+/help|
+help                                Get help on all commands.
+help <command>                      Get help on a specified command (one argument only).
+help list                           List all of the commands without description.
+help general                        Get general help on the operation of the terminal.
+/inventory|
+inventory list <group>              List the items in the inventory associated with: tools, weapons, docs, *.
+inventory find <item>               Determine if a specified named item is in the inventory.
+inventory desc <item>               Get the description of a specified named item.
+/team|
+team list                           List the team members.
+team upgrade <number>               Use skillpoints to upgrade the team members.
+/wallet|
+wallet                              Get the contents of your wallet: credits and skillpoints.
+/read|
+read <item>                         Read a document in your inventory.
+/goto|
+goto <area>                         Go to a specified location, must be accessible from your current location.
+/look|
+look                                Look around the area.
+/map|
+map                                 Look at the regional map.
+/newgame|
+newgame                             Start a new game. Make sure you manually save.
+/data|
+data save <filename>                Save the game to a file of specified name. If file DNE it will create a new save.
+data load <filename>                Load the game from a file of specified name.
+data clear <filename>               Remove the file of specified name from the save slots.
+data list                           List all available save files.
+/credits|
+credits                             View the game credits.
+/exit|
+exit                                Exit the game.
+/system|
+sys info                            Get the terminal's system information.
+sys date                            Get the current date.
+sys clean                           Run antivirus software.
+/cli|
+cli color <color>                   Change the command line's colour (white = 1, blue = 2, yellow = 3, green = 4).
+cli speed <speed>                   Change the text scroll speed in charachters per millisecond.
+cli space <spacing>                 Amount of lines in-between each command prompt.
+/report|
+report                              Get the console error report./|
