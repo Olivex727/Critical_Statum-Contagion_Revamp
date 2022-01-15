@@ -42,7 +42,7 @@ defeated
 #   Ending          Type                Xenith      Conspiracy      SAC                     Crew                Notes
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 1   BAD             Coroner's Report    Killed      Not revealed    Spreads (26)            Pardoned
-2   ARREST          Coroner's Report    Killed      Discredited     Spreads (26)            Silenced by SOIA
+2   ARREST          Coroner's Report    Killed      Buried          Spreads (26)            Silenced by SOIA
 3   TRUE            Legal Case File     Arrested    Not revealed    Eradicated              Honoured            Canon to the A-Scenario
 4   GOOD            Legal Case File     Arrested    Revealed        Eradicated              Honoured            NSU libertarianises
 5   INFECTION       HCUN Incident Rep.  Escaped     Not revealed    Spreads (27)            Infected
@@ -53,7 +53,9 @@ defeated
 10  CONSPIRACY      Coroner's Report    Escaped     Discredited     Spreads (26)            Died                Consp. is revealed but not trusted
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-SAC-27 kills all biological non-humans after 50 years. SAC-26 causes a serious international crisis, but not a genocide. The SAC series was a Silicon-based parasite as it could easily bypass the human immune system (the original intent of it's use). However Xenith mutated it to kill non-human aliens (Colorans and Spirons).
+SAC-27 kills all biological non-humans after 50 years. SAC-26 causes a serious international crisis, but not a genocide.
+The SAC series was a Silicon-based parasite as it could easily bypass the human immune system (the original intent of
+it's use). However Xenith mutated it to kill non-human aliens (Colorans and Spirons).
 
 There are 15 history documents in addition to the 10 for conspiracy.
 
@@ -111,4 +113,5 @@ Command Ideas:
 - cli clear
 - debug
 - cheat
+- Help window
 - Help extra commands (Ctrl+C to force stop, Arrows for prev commands)
