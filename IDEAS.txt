@@ -87,7 +87,7 @@ MARS:
 
 - (Hist) The Second Great Depression
 - (Hist) The Emergence Period
-- (Hist) THe Dark-Age Solar System
+- (Hist) THe Dark-Age Solar System and Mars
 
 LAB1:
 - (Cons) Xenith's Diary: 2283
